@@ -3,10 +3,10 @@ import sbt._
 class Project(info: ProjectInfo) extends DefaultProject(info) with ProguardProject {
   
   //project name
-  override val artifactID = "myprogram"
+  override val artifactID = "quickdraw"
 
   //program entry point
-  override def mainClass: Option[String] = Some("ikvmtest")
+  override def mainClass: Option[String] = Some("Main")
 
   //proguard
   override def proguardOptions = List(

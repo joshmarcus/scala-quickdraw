@@ -8,6 +8,7 @@
 // It doesn't support 'foo-scala.script' scripts or the Application trait.
 
 import java.io.File
+import Process._
 
 object Main {
   def main(args: Array[String]) {
@@ -21,7 +22,8 @@ object Main {
     val workingDir = new File(workingPath)
 
     // checkout this project to ~/.quickdraw
-    println ("Setting up working directory.  This might take a while.")
+    println ("Setting up working directory: %s".format(workingDir.toString()))
+
     val runtime = Runtime.getRuntime()
     runtime.exec("mkdir -p " + workingPath)
 
@@ -32,7 +34,8 @@ object Main {
     runtime.exec("cp %s %s/src/main/scala/".format(scalaPath, workingPath)) 
 
     println("  -- Building jar")
-    runtime.exec("sbt update; sbt compile; sbt proguard".format(workingPath), null, workingDir)
+    val p = new ProcessBuilder("sbt", "proguard").directory(workingDir).start()
+
   }
 }
 
