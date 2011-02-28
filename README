@@ -12,7 +12,10 @@ What's this?
 Running a .scala file as a script (e.g. scala helloworld.scala) is painfully slow -- 1-6 seconds for hello.
 quickdraw is a convenience tool that will build you an executable jar and a wrapper shell script.  
 
-All the actual heavy lifting is being done by the proguard and the sbt proguard plugin.
+All the actual heavy lifting is being done by the proguard and the sbt proguard plugin.  If you just want to
+turn your sbt project into an executable, see:
+
+https://github.com/nuttycom/sbt-proguard-plugin
 
 
 Installation from binary
@@ -57,6 +60,7 @@ TODO
 
 -- finish basic implementation
 -- add proper command line handling
+-- support multiple scala files
 -- right now, scripts can't have jar dependencies, so ...
   -- Support custom sbt 'template' directories so scripts can have dependencies
   -- Support the specification of a direcotry with jars to include (symlink right into template lib?)
